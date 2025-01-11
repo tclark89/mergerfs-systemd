@@ -1,16 +1,15 @@
 [Unit]
-Description=Dummy mergerfs service
-Requires=prepare-for-mergerfs.service
-After=prepare-for-mergerfs.service
+Description=Mergerfs service for /mnt/public
+Requires=mnt-disks-SG_BARR_8TB_01.mount mnt-disks-SG_BARR_8TB_02.mount mnt-disks-WD_RED_4TB_01.mount mnt-disks-WD_RED_4TB_02.mount mnt-disks-WD_RED_8TB_01.mount
 
 [Service]
 Type=simple
 KillMode=none
 ExecStart=/usr/bin/mergerfs \
   -f \
-  -o OPTIONS \
-  /mnt/filesystem0:/mnt/filesystem1 \
-  /mnt/mergerfs
+  -o cache.files=auto-full,dropcacheonclose=true,category.create=mspmfs,allow_other,fsname=mergerfs \
+  /mnt/disks/*/@public \
+  /mnt/public
 ExecStop=/bin/fusermount -uz /mnt/mergerfs
 Restart=on-failure
 
