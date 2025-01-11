@@ -1,6 +1,10 @@
 [Unit]
 Description=Mergerfs service for /mnt/public
-Requires=mnt-disks-SG_BARR_8TB_01.mount mnt-disks-SG_BARR_8TB_02.mount mnt-disks-WD_RED_4TB_01.mount mnt-disks-WD_RED_4TB_02.mount mnt-disks-WD_RED_8TB_01.mount
+RequiresMountsFor=/mnt/disks/SG_BARR_8TB_01 
+RequiresMountsFor=/mnt/disks/SG_BARR_8TB_02
+RequiresMountsFor=/mnt/disks/WD_RED_4TB_01
+RequiresMountsFor=/mnt/disks/WD_RED_4TB_02
+RequiresMountsFor=/mnt/disks/WD_RED_8TB_01
 
 [Service]
 Type=simple
