@@ -14,7 +14,7 @@ ExecStart=/usr/bin/mergerfs \
   -o cache.files=auto-full,dropcacheonclose=true,category.create=mspmfs,allow_other,fsname=mergerfs \
   /mnt/disks/*/@public \
   /mnt/public
-ExecStop=/bin/fusermount -uz /mnt/mergerfs
+ExecStop=/bin/fusermount -uz /mnt/public
 Restart=on-failure
 
 [Install]
