@@ -3,6 +3,7 @@ Description=Mergerfs service for /mnt/public
 RequiresMountsFor=/mnt/disks/SG_BARR_8TB_01 
 RequiresMountsFor=/mnt/disks/SG_BARR_8TB_02
 RequiresMountsFor=/mnt/disks/SG_BARR_8TB_03
+After=local-fs.target
 
 [Service]
 Type=simple
